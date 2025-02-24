@@ -646,24 +646,6 @@ def level_2():
 def level_3():
     run_level(3)
 
-def final_window():
-    global main_music, bg_music, main_note, bg_note
-
-    running = True
-    if main_music and not pygame.mixer.get_busy():
-        main_sound.play(-1)
-
-    while running:
-        screen.fill((0, 0, 0))
-        screen.blit(pygame.image.load("background.jpg"), (0, 0))
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-                pygame.quit()
-                sys.exit()
-        pygame.display.flip()
-
 
 if __name__ == "__main__":
     main_meno()
