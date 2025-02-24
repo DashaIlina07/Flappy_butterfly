@@ -4,7 +4,8 @@ import random
 
 
 class Button:
-    def __init__(self, x, y, width, height, text, image_path, hover_image_path=None, sound_path=None, text_color=(255, 255, 255)):
+    def __init__(self, x, y, width, height, text, image_path, hover_image_path=None,
+                 sound_path=None, text_color=(255, 255, 255)):
         self.x = x
         self.y = y
         self.width = width
@@ -59,9 +60,12 @@ selected_character = "Птица"
 score = 0
 
 player_images = {
-    "Птица": [pygame.image.load("птицы 1.png"), pygame.image.load("птицы 2.png"), pygame.image.load("птицы 3.png"), pygame.image.load("птицы death.png")],
-    "Бабочка": [pygame.image.load("бабочки 1.png"), pygame.image.load("бабочки 2.png"), pygame.image.load("бабочки 3.png"), pygame.image.load("бабочки death.png")],
-    "Пчела": [pygame.image.load("пчелы1.png"), pygame.image.load("пчелы 2.png"), pygame.image.load("пчелы 3.png"), pygame.image.load("пчелы dead.png")]
+    "Птица": [pygame.image.load("птицы 1.png"), pygame.image.load("птицы 2.png"),
+              pygame.image.load("птицы 3.png"), pygame.image.load("птицы death.png")],
+    "Бабочка": [pygame.image.load("бабочки 1.png"), pygame.image.load("бабочки 2.png"),
+                pygame.image.load("бабочки 3.png"), pygame.image.load("бабочки death.png")],
+    "Пчела": [pygame.image.load("пчелы1.png"), pygame.image.load("пчелы 2.png"),
+              pygame.image.load("пчелы 3.png"), pygame.image.load("пчелы dead.png")]
 }
 obstacle_image = pygame.image.load("obstacle.png")
 
@@ -323,15 +327,22 @@ def character_select_meno():
                          "back.png",
                          "")
 
-    difficulty_easy_button = Button(400, 200, 200, 70, "", "level1.png", "level1.png", sound_path, text_color=(0,0,0))
-    difficulty_medium_button = Button(400, 300, 200, 70, "", "level2.png", "level2.png", sound_path, text_color=(0,0,0))
-    difficulty_hard_button = Button(400, 400, 200, 70, "", "level3.png", "level3.png", sound_path, text_color=(0,0,0))
+    difficulty_easy_button = Button(400, 200, 200, 70, "",
+                                    "level1.png", "level1.png", sound_path, text_color=(0,0,0))
+    difficulty_medium_button = Button(400, 300, 200, 70, "", "level2.png",
+                                      "level2.png", sound_path, text_color=(0,0,0))
+    difficulty_hard_button = Button(400, 400, 200, 70, "", "level3.png", "level3.png",
+                                    sound_path, text_color=(0,0,0))
 
-    character_butterfly_button = Button(700, 200, 120, 80, "", "бабочки 1.png", "бабочки 2.png", sound_path, text_color=(0,0,0))
-    character_bee_button = Button(700, 300, 120, 80, "", "пчелы1.png", "пчелы 2.png", sound_path, text_color=(0,0,0))
-    character_bird_button = Button(700, 400, 120, 80, "", "птицы 1.png", "птицы 2.png", sound_path, text_color=(0,0,0))
+    character_butterfly_button = Button(700, 200, 120, 80, "", "бабочки 1.png", "бабочки 2.png",
+                                        sound_path, text_color=(0,0,0))
+    character_bee_button = Button(700, 300, 120, 80, "", "пчелы1.png", "пчелы 2.png", sound_path,
+                                  text_color=(0,0,0))
+    character_bird_button = Button(700, 400, 120, 80, "", "птицы 1.png", "птицы 2.png", sound_path,
+                                   text_color=(0,0,0))
 
-    start_level_button = Button(width // 2 - 150, 600, 300, 100, "", "play.png", "play_hover.png", sound_path)
+    start_level_button = Button(width // 2 - 150, 600, 300, 100, "", "play.png",
+                                "play_hover.png", sound_path)
     running = True
     
     while running:
@@ -419,7 +430,9 @@ def character_select_meno():
 
 
 class Level:
-    def __init__(self, level_number, screen, width, height, player_images, obstacle_image, main_sound, bg_sound, difficulty, selected_character, bg_music, save_result_to_txt, main_meno, dead, main_note, bg_note, score):
+    def __init__(self, level_number, screen, width, height, player_images, obstacle_image,
+                 main_sound, bg_sound, difficulty, selected_character, bg_music, save_result_to_txt,
+                 main_meno, dead, main_note, bg_note, score):
         self.level_number = level_number
         self.screen = screen
         self.width = width
@@ -633,8 +646,11 @@ class Level:
 
 
 def run_level(level_num):
-    global screen, width, height, player_images, obstacle_image, main_sound, bg_sound, difficulty, selected_character, bg_music, save_result_to_txt, main_meno, dead, main_note, bg_note, score
-    level_instance = Level(level_num, screen, width, height, player_images, obstacle_image, main_sound, bg_sound, difficulty, selected_character, bg_music, save_result_to_txt, main_meno, dead, main_note, bg_note, score)
+    global screen, width, height, player_images, obstacle_image, main_sound, bg_sound,
+    difficulty, selected_character, bg_music, save_result_to_txt, main_meno, dead, main_note, bg_note, score
+    level_instance = Level(level_num, screen, width, height, player_images, obstacle_image, main_sound, bg_sound,
+                           difficulty, selected_character, bg_music, save_result_to_txt,
+                           main_meno, dead, main_note, bg_note, score)
     level_instance.run()
 
 def level_1():
