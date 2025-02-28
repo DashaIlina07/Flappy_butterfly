@@ -3,7 +3,7 @@ import sys
 import random
 
 
-class Button:
+class Button:#Катя
     def __init__(self, x, y, width, height, text, image_path, hover_image_path=None,
                  sound_path=None, text_color=(255, 255, 255)):
         self.x = x
@@ -42,7 +42,7 @@ class Button:
             if self.sound:
                 self.sound.play()
             pygame.event.post(pygame.event.Event(pygame.USEREVENT, button=self))
-
+#Катя и Даша
 pygame.init()
 width, height = 1366, 768
 fps = 60
@@ -79,7 +79,7 @@ def save_result_to_txt(player_name, score, difficulty, character):
         print(f"Ошибка при сохранении результатов: {e}")
 
 
-def main_meno():
+def main_meno():#Катя
     global main_music, bg_music, main_note, bg_note
     if main_note or bg_note:
         sound_path = "звуки и музыка/click.mp3"
@@ -166,7 +166,7 @@ def main_meno():
         quit_button.draw(screen)
         pygame.display.flip()
 
-def dead(score):
+def dead(score):#Катя
     global main_music, bg_music, main_note, bg_note
     if main_note or bg_note:
         sound_path = "звуки и музыка/click.mp3"
@@ -247,7 +247,7 @@ def dead(score):
                 sys.exit()
         pygame.display.flip()
 
-def setting_meno():
+def setting_meno():#Катя
     global main_music, bg_music, main_note, bg_note
     if main_note or bg_note:
         sound_path = "звуки и музыка/click.mp3"
@@ -318,7 +318,7 @@ def setting_meno():
         pygame.display.flip()
 
 
-def character_select_meno():
+def character_select_meno():#Катя и Даша
     global difficulty, selected_character
     sound_path = "звуки и музыка/click.mp3"
     if main_note == False or bg_note == False:
@@ -479,7 +479,7 @@ class Level:
                     pygame.image.load("фоны/взрыв6.png"),
                     pygame.image.load("фоны/взрыв7.png"),
                     pygame.image.load("фоны/взрыв8.png"),
-                ]
+                ]#Катя
         self.clock = pygame.time.Clock()
 
         if self.bg_music:
@@ -534,11 +534,11 @@ class Level:
             if self.bg_x == -1900:
                 self.bg_x = 0
 
-            if self.name == self.player_images[0] and self.t > 30:
+            if self.name == self.player_images[0] and self.t > 30:#Катя
                 self.player_image = pygame.transform.scale(self.player_images[2],
                                                            (self.player_width, self.player_height))
                 self.name = self.player_images[2]
-            elif self.name == self.player_images[0] and self.t > 15:
+            elif self.name == self.player_images[0] and self.t > 15:#Катя
                 self.player_image = pygame.transform.scale(self.player_images[1],
                                                            (self.player_width, self.player_height))
 
@@ -551,7 +551,7 @@ class Level:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         self.player_speed_y = -1.1
-                        self.player_image = pygame.transform.scale(self.player_images[0],
+                        self.player_image = pygame.transform.scale(self.player_images[0],#Катя
                                                                    (self.player_width, self.player_height))
                         self.name = self.player_images[0]
                         self.t = 0
@@ -568,11 +568,11 @@ class Level:
 
             if self.player_y < 0 or self.player_y > self.height - self.player_height:
                 print("Столкновение с верхом или низом!")
-                self.bg_sound.stop()
+                self.bg_sound.stop()#Катя
                 if main_note or bg_note:
                     colid = pygame.mixer.Sound("звуки и музыка/звук падения.mp3")
                     colid.play(-1)
-                for i in self.conflict:
+                for i in self.conflict:#Катя
                     self.screen.fill((0, 0, 0))
                     self.screen.blit(self.fon, (self.bg_x, 0))
                     self.screen.blit(self.fon, (self.bg_x + 1900, 0))
@@ -605,10 +605,10 @@ class Level:
             player_rect = self.player_image.get_rect(topleft=(self.player_x, self.player_y))
             if player_rect.colliderect(self.obstacle_upper_rect) or player_rect.colliderect(self.obstacle_lower_rect):
                 self.bg_sound.stop()
-                if main_note or bg_note:
+                if main_note or bg_note:#Катя
                     colid = pygame.mixer.Sound("звуки и музыка/звук падения.mp3")
                     colid.play(-1)
-                for i in self.conflict:
+                for i in self.conflict:#Катя
                     self.screen.fill((0, 0, 0))
                     self.screen.blit(self.fon, (self.bg_x, 0))
                     self.screen.blit(self.fon, (self.bg_x + 1900, 0))
@@ -645,7 +645,7 @@ class Level:
                                                            (self.obstacle_width, self.obstacle_lower_rect.height))
             self.screen.blit(scaled_lower_obstacle, self.obstacle_lower_rect)
 
-            font = pygame.font.Font(None, 60)
+            font = pygame.font.Font(None, 60)#Катя
             score_text = font.render(f"Score:          {self.score}", True, (0, 0, 0))
             self.screen.blit(score_text, (10, 10))
 
